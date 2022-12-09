@@ -7,6 +7,14 @@
   <service name="samba-client"/>
   <service name="mdns"/>
   <service name="mosh"/>
+  <service name="samba"/>
+  <service name="samba-dc"/>
+  <service name="wsdd"/>
+  <service name="wsdd-http"/>
+  <service name="ws-discovery"/>
+  <service name="ws-discovery-client"/>
+  <service name="ws-discovery-tcp"/>
+  <service name="ws-discovery-udp"/>
   <port port="1025-65535" protocol="udp"/>
   <port port="1025-65535" protocol="tcp"/>
   <forward/>
