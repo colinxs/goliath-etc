@@ -1,0 +1,13 @@
+{
+  "name": "com.google.chrome.remote_assistance",
+  "description": "Remote Assistance Host for Chromoting",
+  "type": "stdio",
+  "path": "/usr/lib64/chrome-remote-desktop/remote-assistance-host",
+  
+  "allowed_origins": [
+    
+    "chrome-extension://inomeogfingihgjfjlpeplalcfajhgai/",
+    
+    "chrome-extension://hpodccmdligbeohchckkeajbfohibipg/"
+  ]
+}

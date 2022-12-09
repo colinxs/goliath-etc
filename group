@@ -93,3 +93,4 @@ named:x:25:
 pkcs11:x:383:
 tomcat:x:53:
 pkiuser:x:17:
+chrome-remote-desktop:x:382:

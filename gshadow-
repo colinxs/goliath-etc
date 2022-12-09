@@ -92,3 +92,4 @@ ipaapi:!::apache
 named:!::
 pkcs11:!::
 tomcat:!::
+pkiuser:!::

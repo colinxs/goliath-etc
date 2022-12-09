@@ -92,3 +92,4 @@ ipaapi:x:384:apache
 named:x:25:
 pkcs11:x:383:
 tomcat:x:53:
+pkiuser:x:17:

@@ -1,0 +1,12 @@
+{
+  "name": "com.google.chrome.remote_webauthn",
+  "description": "Remote Web Authentication Process for Chromoting",
+  "type": "stdio",
+  "path": "/usr/lib64/chrome-remote-desktop/remote-webauthn",
+  "allowed_origins": [
+    
+    "chrome-extension://djjmngfglakhkhmgcfdmjalogilepkhd/",
+    
+    "chrome-extension://hfmpidnhglhndeamkbopljnclamhmnaj/"
+  ]
+}

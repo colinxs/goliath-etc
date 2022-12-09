@@ -1,0 +1,12 @@
+{
+  "name": "com.google.chrome.remote_desktop",
+  "description": "Chromoting Host",
+  "type": "stdio",
+  "path": "/usr/lib64/chrome-remote-desktop/native-messaging-host",
+  "allowed_origins": [
+    
+    "chrome-extension://inomeogfingihgjfjlpeplalcfajhgai/",
+    
+    "chrome-extension://hpodccmdligbeohchckkeajbfohibipg/"
+  ]
+}
