@@ -121,9 +121,12 @@
 /usr/s?bin/fuidshift	--	system_u:object_r:container_runtime_exec_t:s0
 /usr/s?bin/kubelet.*	--	system_u:object_r:kubelet_exec_t:s0
 /usr/s?bin/gdm-binary	--	system_u:object_r:xdm_exec_t:s0
+/usr/s?bin/kata-agent	--	system_u:object_r:container_runtime_exec_t:s0
+/usr/s?bin/buildkitd.*	--	system_u:object_r:container_runtime_exec_t:s0
 /usr/s?bin/hyperkube.*	--	system_u:object_r:kubelet_exec_t:s0
 /usr/s?bin/containerd.*	--	system_u:object_r:container_runtime_exec_t:s0
 /usr/s?bin/mcollectived	--	system_u:object_r:openshift_initrc_exec_t:s0
+/usr/s?bin/buildkit-runc	--	system_u:object_r:container_runtime_exec_t:s0
 /usr/s?bin/docker-latest	--	system_u:object_r:container_runtime_exec_t:s0
 /dev/n?(raw)?[qr]ft[0-3]	-c	system_u:object_r:tape_device_t:s0
 /etc/a?quota\.(user|group)	--	system_u:object_r:quota_db_t:s0
@@ -813,12 +816,15 @@
 /etc/amanda/.*/index(/.*)?	system_u:object_r:amanda_data_t:s0
 /usr/local/s?bin/kubelet.*	--	system_u:object_r:kubelet_exec_t:s0
 /var/log/dnf.librepo.log.*	--	system_u:object_r:rpm_log_t:s0
+/usr/local/s?bin/kata-agent	--	system_u:object_r:container_runtime_exec_t:s0
 /usr/mailman.*/mail/wrapper	--	system_u:object_r:mailman_mail_exec_t:s0
 /etc/mcelog/.*-error-trigger	--	system_u:object_r:bin_t:s0
+/usr/local/s?bin/buildkitd.*	--	system_u:object_r:container_runtime_exec_t:s0
 /usr/local/s?bin/hyperkube.*	--	system_u:object_r:kubelet_exec_t:s0
 /etc/amanda/.*/tapelist(/.*)?	system_u:object_r:amanda_data_t:s0
 /usr/lib/ld-[^/]*\.so(\.[^/]*)*	--	system_u:object_r:ld_so_t:s0
 /usr/local/s?bin/containerd.*	--	system_u:object_r:container_runtime_exec_t:s0
+/usr/local/s?bin/buildkit-runc	--	system_u:object_r:container_runtime_exec_t:s0
 /usr/lib/qt-.*/etc/settings(/.*)?	system_u:object_r:xdm_var_run_t:s0
 /opt/altera9.1/quartus/linux/libccl_err\.so	--	system_u:object_r:textrel_shlib_t:s0
 /opt/vmware/(workstation|player)/bin/vmware	--	system_u:object_r:vmware_exec_t:s0
@@ -880,6 +886,7 @@
 /etc/libvirt/[^/]*	-d	system_u:object_r:virt_etc_rw_t:s0
 /etc/alsa/pcm(/.*)?	system_u:object_r:alsa_etc_rw_t:s0
 /etc/asterisk(/.*)?	system_u:object_r:asterisk_etc_t:s0
+/etc/buildkit(/.*)?	system_u:object_r:container_config_t:s0
 /etc/cfingerd(/.*)?	system_u:object_r:fingerd_etc_t:s0
 /etc/cherokee(/.*)?	system_u:object_r:httpd_config_t:s0
 /etc/cups/ppd(/.*)?	system_u:object_r:cupsd_rw_etc_t:s0
@@ -1627,6 +1634,7 @@
 /var/lib/libvirt(/.*)?	system_u:object_r:virt_var_lib_t:s0
 /var/lib/lightdm(/.*)?	system_u:object_r:xdm_var_lib_t:s0
 /var/lib/mailman(/.*)?	system_u:object_r:mailman_data_t:s0
+/var/lib/nerdctl(/.*)?	system_u:object_r:container_ro_file_t:s0
 /var/lib/neutron(/.*)?	system_u:object_r:neutron_var_lib_t:s0
 /var/lib/openais(/.*)?	system_u:object_r:cluster_var_lib_t:s0
 /var/lib/openhpi(/.*)?	system_u:object_r:openhpid_var_lib_t:s0
@@ -1858,6 +1866,7 @@
 /var/lib/arpwatch(/.*)?	system_u:object_r:arpwatch_data_t:s0
 /var/lib/asterisk(/.*)?	system_u:object_r:asterisk_var_lib_t:s0
 /var/lib/bugzilla(/.*)?	system_u:object_r:bugzilla_rw_content_t:s0
+/var/lib/buildkit(/.*)?	system_u:object_r:container_var_lib_t:s0
 /var/lib/cherokee(/.*)?	system_u:object_r:httpd_var_lib_t:s0
 /var/lib/collectd(/.*)?	system_u:object_r:collectd_var_lib_t:s0
 /var/lib/corosync(/.*)?	system_u:object_r:cluster_var_lib_t:s0
@@ -1914,6 +1923,7 @@
 /var/named/slaves(/.*)?	system_u:object_r:named_cache_t:s0
 /var/opt/f-secure(/.*)?	system_u:object_r:antivirus_db_t:s0
 /var/qmail/owners(/.*)?	system_u:object_r:qmail_etc_t:s0
+/var/run/buildkit(/.*)?	system_u:object_r:container_var_run_t:s0
 /var/run/collectd(/.*)?	system_u:object_r:collectd_var_run_t:s0
 /var/run/cyphesis(/.*)?	system_u:object_r:cyphesis_var_run_t:s0
 /var/run/faillock(/.*)?	system_u:object_r:faillog_t:s0
@@ -1977,6 +1987,7 @@
 /usr/lib/allegro/(.*/)?alleg-vga\.so	--	system_u:object_r:textrel_shlib_t:s0
 /usr/lib/cgi-bin/(nph-)?cgiwrap(d)?	--	system_u:object_r:httpd_suexec_exec_t:s0
 /var/run/cluster/((ccs)|(ccsd))\.pid	--	system_u:object_r:ccs_var_run_t:s0
+/var/lib/nerdctl/[^/]*/volumes(/.*)?	system_u:object_r:container_file_t:s0
 /var/spool/cron/a?quota\.(user|group)	--	system_u:object_r:quota_db_t:s0
 /var/run/cluster/((ccs)|(ccsd))\.sock	-s	system_u:object_r:ccs_var_run_t:s0
 /usr/lib/jvm/java(.*/)bin(/.*)?/.*\.so	--	system_u:object_r:textrel_shlib_t:s0
@@ -2147,6 +2158,7 @@
 /opt/google/chrome[^/]*/chrome-sandbox	--	system_u:object_r:chrome_sandbox_exec_t:s0
 /opt/google/picasa(/.*)?/Picasa3/.*exe	--	system_u:object_r:wine_exec_t:s0
 /usr/lib/xulrunner[^/]*/xulrunner[^/]*	--	system_u:object_r:bin_t:s0
+/var/lib/buildkit/[^/]*/snapshots(/.*)?	system_u:object_r:container_file_t:s0
 /opt/google/picasa(/.*)?/bin/uninstaller	--	system_u:object_r:wine_exec_t:s0
 /usr/lib/xulrunner[^/]*/plugin-container	--	system_u:object_r:mozilla_plugin_exec_t:s0
 /usr/lib/ruby/gems(/.*)?/helper-scripts(/.*)?	system_u:object_r:bin_t:s0
@@ -2422,7 +2434,7 @@
 /emul/ia32-linux/usr(/.*)?/java/.*\.jsa	--	system_u:object_r:lib_t:s0
 /var/lib/openshift/a?quota\.(user|group)	--	system_u:object_r:quota_db_t:s0
 /var/lib/containerd/[^/]*/sandboxes(/.*)?	system_u:object_r:container_ro_file_t:s0
-/var/lib/containerd/[^/]*/snapshots(/.*)?	system_u:object_r:container_ro_file_t:s0
+/var/lib/containerd/[^/]*/snapshots(/.*)?	system_u:object_r:container_file_t:s0
 /var/lib/stickshift/.stickshift-proxy.d(/.*)?	system_u:object_r:etc_t:s0
 /usr/lib/thunderbird.*/mozilla-xremote-client	--	system_u:object_r:bin_t:s0
 /emul/ia32-linux/usr(/.*)?/java/.+\.so(\.[^/]*)*	--	system_u:object_r:lib_t:s0
@@ -2731,6 +2743,7 @@
 /usr/lib/dracut/modules.d/.*\.service	system_u:object_r:systemd_unit_file_t:s0
 /var/lib/docker-latest/.*/config\.env	system_u:object_r:container_ro_file_t:s0
 /opt/VBoxGuestAdditions.*/lib/VBox.*\.so	--	system_u:object_r:textrel_shlib_t:s0
+/var/lib/buildkit/runc-.*/executor(/.*?)	system_u:object_r:container_ro_file_t:s0
 /sysroot/ostree/deploy/.*-atomic/deploy(/.*)?	system_u:object_r:root_t:s0
 /usr/lib/emacsen-common/.*	system_u:object_r:bin_t:s0
 /etc/rc\.d/init\.d/gluster.*	--	system_u:object_r:glusterd_initrc_exec_t:s0
@@ -3077,6 +3090,7 @@
 /var/lib/openshift/\.log/httpd(/.*)?	system_u:object_r:httpd_log_t:s0
 /var/run/systemd/ask-password(/.*)?	system_u:object_r:systemd_passwd_var_run_t:s0
 /usr/share/gitolite3/commands(/.*)?	--	system_u:object_r:bin_t:s0
+/var/lib/buildkit/containerd-.*(/.*?)	system_u:object_r:container_ro_file_t:s0
 /usr/lib/libjavascriptcoregtk[^/]*\.so.*	--	system_u:object_r:textrel_shlib_t:s0
 /etc/hotplug\.d/default/default.*	system_u:object_r:bin_t:s0
 /usr/lib/systemd/generator/lvm.*	system_u:object_r:lvm_unit_file_t:s0
@@ -3192,6 +3206,7 @@
 /usr/lib/udev/devices/hugepages/.*	<<none>>
 /usr/X11R6/lib/libfglrx_gamma\.so.*	--	system_u:object_r:textrel_shlib_t:s0
 /usr/lib/systemd/system/arpwatch.*	--	system_u:object_r:arpwatch_unit_file_t:s0
+/usr/lib/systemd/system/buildkit.*	--	system_u:object_r:container_unit_file_t:s0
 /usr/lib/systemd/system/collectd.*	--	system_u:object_r:collectd_unit_file_t:s0
 /usr/lib/systemd/system/corosync.*	--	system_u:object_r:cluster_unit_file_t:s0
 /usr/lib/systemd/system/dhcrelay.*	--	system_u:object_r:dhcpd_unit_file_t:s0

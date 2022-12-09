@@ -151,7 +151,7 @@ get_sorted_bls()
         bls="${bls%.conf}"
         bls="${bls##*/}"
         echo "${bls}"
-    done | ${kernel_sort} 2>/dev/null | tac)) || :
+    done | sort -Vr 2>/dev/null)) || :
 
     echo "${files[@]}"
 }
