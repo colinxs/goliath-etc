@@ -2,7 +2,7 @@ root:x:0:
 bin:x:1:
 daemon:x:2:
 sys:x:3:
-adm:x:4:
+adm:x:4:grafana-agent
 tty:x:5:
 disk:x:6:
 lp:x:7:
@@ -31,7 +31,7 @@ input:x:104:
 kvm:x:36:qemu
 render:x:105:
 sgx:x:106:
-systemd-journal:x:190:
+systemd-journal:x:190:grafana-agent
 systemd-network:x:192:
 systemd-oom:x:999:
 systemd-resolve:x:193:
@@ -85,3 +85,4 @@ wsdd:x:388:
 weldr:x:969:
 _osbuild-composer:x:968:
 onepassword-cli:x:1002:
+grafana-agent:x:387:

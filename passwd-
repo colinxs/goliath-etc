@@ -44,7 +44,7 @@ sshd:x:74:74:Privilege-separated SSH:/usr/share/empty.sshd:/sbin/nologin
 tcpdump:x:72:72:tcpdump:/:/sbin/nologin
 systemd-coredump:x:978:978:systemd Core Dumper:/:/usr/sbin/nologin
 systemd-timesync:x:977:977:systemd Time Synchronization:/:/usr/sbin/nologin
-csummers:x:1000:1000:Colin Summers:/home/csummers:/bin/bash
+csummers:x:1000:1000:Colin Summers:/home/csummers:/usr/bin/zsh
 setroubleshoot:x:976:976:SELinux troubleshoot server:/var/lib/setroubleshoot:/usr/sbin/nologin
 clevis:x:975:975:Clevis Decryption Framework unprivileged user:/var/cache/clevis:/sbin/nologin
 pcp:x:974:974:Performance Co-Pilot:/var/lib/pcp:/usr/sbin/nologin

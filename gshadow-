@@ -2,7 +2,7 @@ root:::
 bin:::
 daemon:::
 sys:::
-adm:::
+adm:::grafana-agent
 tty:::
 disk:::
 lp:::
@@ -84,3 +84,5 @@ dirsrv:!::
 wsdd:!::
 weldr:!*::
 _osbuild-composer:!*::
+onepassword-cli:!::
+grafana-agent:!::
