@@ -82,3 +82,5 @@ libvirtdbus:!::
 wbpriv:!::
 dirsrv:!::
 wsdd:!::
+weldr:!*::
+_osbuild-composer:!*::

@@ -84,3 +84,4 @@ dirsrv:x:389:
 wsdd:x:388:
 weldr:x:969:
 _osbuild-composer:x:968:
+onepassword-cli:x:1002:

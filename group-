@@ -82,3 +82,5 @@ libvirtdbus:x:970:
 wbpriv:x:88:
 dirsrv:x:389:
 wsdd:x:388:
+weldr:x:969:
+_osbuild-composer:x:968:
