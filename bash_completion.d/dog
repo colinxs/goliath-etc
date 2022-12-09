@@ -1,0 +1,1047 @@
+#!bash
+
+_dog_cluster()
+{
+    local opts
+    opts="info format shutdown snapshot recover reweight check alter-copy"
+
+    case "$1" in
+        info)
+            _dog_cluster_info
+            ;;
+        format)
+            _dog_cluster_format
+            ;;
+        shutdown)
+            _dog_cluster_shutdown
+            ;;
+        snapshot)
+            _dog_cluster_snapshot
+            ;;
+        recover)
+            _dog_cluster_recover
+            ;;
+        reweight)
+            _dog_cluster_reweight
+            ;;
+        check)
+            _dog_cluster_check
+            ;;
+        alter-copy)
+            _dog_cluster_alter-copy
+            ;;
+        "")
+            COMPREPLY=($( compgen \
+                -W "${opts}" \
+                -- "${COMP_WORDS[COMP_CWORD]}" ))
+            ;;
+        *)
+            COMPREPLY=()
+            ;;
+    esac
+}
+
+_dog_cluster_info()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-a --address -p --port -r --raw -h --help -v --verbose -T --time -d --diff" \
+                -- ${cur} ))
+            ;;
+        *)
+            COMPREPLY=($( compgen -W "" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_cluster_format()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-b --store -c --copies -l --lock -t --strict -a --address -p --port -h --help -z --block_size_shift -T --time -V --fixedvnodes -R --recyclevid -f --force -F --avoid-diskfull" \
+                -- ${cur} ))
+            ;;
+        *)
+            COMPREPLY=($( compgen -W "" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_cluster_shutdown()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-a --address -p --port -h --help -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            COMPREPLY=($( compgen -W "" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_cluster_snapshot()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-a --address -p --port -h --help -T --time -m --multithread" \
+                -- ${cur} ))
+            ;;
+        *)
+            COMPREPLY=($( compgen -W "save list load show" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_cluster_recover()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-a --address -f --force -p --port -h --help -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            COMPREPLY=($( compgen -W "force enable disable" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_cluster_reweight()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-a --address -p --port -h --help -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            COMPREPLY=($( compgen -W "" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_cluster_check()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-a --address -p --port -h --help -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            COMPREPLY=($( compgen -W "" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_cluster_alter-copy()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-a --address -p --port -h --help -T --time -c --copies -f --force" \
+                -- ${cur} ))
+            ;;
+        *)
+            COMPREPLY=($( compgen -W "" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_upgrade()
+{
+    local opts
+    opts="inode-convert epoch-convert config-convert object-location"
+
+    case "$1" in
+        inode-convert)
+            _dog_upgrade_inode-convert
+            ;;
+        epoch-convert)
+            _dog_upgrade_epoch-convert
+            ;;
+        config-convert)
+            _dog_upgrade_config-convert
+            ;;
+        object-location)
+            _dog_upgrade_object-location
+            ;;
+        "")
+            COMPREPLY=($( compgen \
+                -W "${opts}" \
+                -- "${COMP_WORDS[COMP_CWORD]}" ))
+            ;;
+        *)
+            COMPREPLY=()
+            ;;
+    esac
+}
+
+_dog_upgrade_inode-convert()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-h --help -T --time -o --orig-version" \
+                -- ${cur} ))
+            ;;
+        *)
+            COMPREPLY=($( compgen -W "" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_upgrade_epoch-convert()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-h --help -T --time -o --orig-version" \
+                -- ${cur} ))
+            ;;
+        *)
+            COMPREPLY=($( compgen -W "" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_upgrade_config-convert()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-h --help -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            COMPREPLY=($( compgen -W "" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_upgrade_object-location()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-h --help -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            COMPREPLY=($( compgen -W "" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_vdi()
+{
+    local opts
+    opts="check create snapshot clone delete rollback list tree graph object track setattr getattr resize read write backup restore alter-copy lock"
+
+    case "$1" in
+        check)
+            _dog_vdi_check
+            ;;
+        create)
+            _dog_vdi_create
+            ;;
+        snapshot)
+            _dog_vdi_snapshot
+            ;;
+        clone)
+            _dog_vdi_clone
+            ;;
+        delete)
+            _dog_vdi_delete
+            ;;
+        rollback)
+            _dog_vdi_rollback
+            ;;
+        list)
+            _dog_vdi_list
+            ;;
+        tree)
+            _dog_vdi_tree
+            ;;
+        graph)
+            _dog_vdi_graph
+            ;;
+        object)
+            _dog_vdi_object
+            ;;
+        track)
+            _dog_vdi_track
+            ;;
+        setattr)
+            _dog_vdi_setattr
+            ;;
+        getattr)
+            _dog_vdi_getattr
+            ;;
+        resize)
+            _dog_vdi_resize
+            ;;
+        read)
+            _dog_vdi_read
+            ;;
+        write)
+            _dog_vdi_write
+            ;;
+        backup)
+            _dog_vdi_backup
+            ;;
+        restore)
+            _dog_vdi_restore
+            ;;
+        alter-copy)
+            _dog_vdi_alter-copy
+            ;;
+        lock)
+            _dog_vdi_lock
+            ;;
+        "")
+            COMPREPLY=($( compgen \
+                -W "${opts}" \
+                -- "${COMP_WORDS[COMP_CWORD]}" ))
+            ;;
+        *)
+            COMPREPLY=()
+            ;;
+    esac
+}
+
+_dog_vdi_check()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-s --snapshot -e --exist -a --address -p --port -h --help -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            local dog="${COMP_WORDS[0]}"
+            local vdilist="$(${dog} vdi list -r 2>/dev/null | awk '{print $2}')"
+            COMPREPLY=($( compgen -W " ${vdilist}" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_vdi_create()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-P --prealloc -y --hyper -c --copies -a --address -p --port -h --help -r --raw -v --verbose -z --block_size_shift -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            COMPREPLY=($( compgen -W "" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_vdi_snapshot()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-s --snapshot -a --address -p --port -h --help -r --raw -v --verbose -T --time -R --reduce-identical-snapshotsdo" \
+                -- ${cur} ))
+            ;;
+        *)
+            local dog="${COMP_WORDS[0]}"
+            local vdilist="$(${dog} vdi list -r 2>/dev/null | awk '{print $2}')"
+            COMPREPLY=($( compgen -W " ${vdilist}" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_vdi_clone()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-s --snapshot -P --prealloc -n --no-share -a --address -p --port -h --help -r --raw -v --verbose -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            local dog="${COMP_WORDS[0]}"
+            local vdilist="$(${dog} vdi list -r 2>/dev/null | awk '{print $2}')"
+            COMPREPLY=($( compgen -W " ${vdilist}" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_vdi_delete()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-s --snapshot -a --address -p --port -h --help -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            local dog="${COMP_WORDS[0]}"
+            local vdilist="$(${dog} vdi list -r 2>/dev/null | awk '{print $2}')"
+            COMPREPLY=($( compgen -W " ${vdilist}" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_vdi_rollback()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-s --snapshot -a --address -p --port -h --help -f --force -r --raw -v --verbose -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            local dog="${COMP_WORDS[0]}"
+            local vdilist="$(${dog} vdi list -r 2>/dev/null | awk '{print $2}')"
+            COMPREPLY=($( compgen -W " ${vdilist}" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_vdi_list()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-a --address -p --port -r --raw -h --help -o --oid -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            local dog="${COMP_WORDS[0]}"
+            local vdilist="$(${dog} vdi list -r 2>/dev/null | awk '{print $2}')"
+            COMPREPLY=($( compgen -W " ${vdilist}" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_vdi_tree()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-a --address -p --port -h --help -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            local dog="${COMP_WORDS[0]}"
+            local vdilist="$(${dog} vdi list -r 2>/dev/null | awk '{print $2}')"
+            COMPREPLY=($( compgen -W " ${vdilist}" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_vdi_graph()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-a --address -p --port -h --help -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            local dog="${COMP_WORDS[0]}"
+            local vdilist="$(${dog} vdi list -r 2>/dev/null | awk '{print $2}')"
+            COMPREPLY=($( compgen -W " ${vdilist}" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_vdi_object()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-i --index -s --snapshot -a --address -p --port -h --help -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            local dog="${COMP_WORDS[0]}"
+            local vdilist="$(${dog} vdi list -r 2>/dev/null | awk '{print $2}')"
+            COMPREPLY=($( compgen -W "location map dump ${vdilist}" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_vdi_track()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-i --index -s --snapshot -a --address -p --port -h --help -o --oid -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            local dog="${COMP_WORDS[0]}"
+            local vdilist="$(${dog} vdi list -r 2>/dev/null | awk '{print $2}')"
+            COMPREPLY=($( compgen -W " ${vdilist}" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_vdi_setattr()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-d --delete -x --exclusive -a --address -p --port -h --help -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            local dog="${COMP_WORDS[0]}"
+            local vdilist="$(${dog} vdi list -r 2>/dev/null | awk '{print $2}')"
+            COMPREPLY=($( compgen -W " ${vdilist}" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_vdi_getattr()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-a --address -p --port -h --help -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            local dog="${COMP_WORDS[0]}"
+            local vdilist="$(${dog} vdi list -r 2>/dev/null | awk '{print $2}')"
+            COMPREPLY=($( compgen -W " ${vdilist}" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_vdi_resize()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-a --address -p --port -h --help -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            local dog="${COMP_WORDS[0]}"
+            local vdilist="$(${dog} vdi list -r 2>/dev/null | awk '{print $2}')"
+            COMPREPLY=($( compgen -W " ${vdilist}" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_vdi_read()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-s --snapshot -a --address -p --port -h --help -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            local dog="${COMP_WORDS[0]}"
+            local vdilist="$(${dog} vdi list -r 2>/dev/null | awk '{print $2}')"
+            COMPREPLY=($( compgen -W " ${vdilist}" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_vdi_write()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-a --address -p --port -w --writeback -h --help -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            local dog="${COMP_WORDS[0]}"
+            local vdilist="$(${dog} vdi list -r 2>/dev/null | awk '{print $2}')"
+            COMPREPLY=($( compgen -W " ${vdilist}" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_vdi_backup()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-s --snapshot -F --from -a --address -p --port -h --help -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            local dog="${COMP_WORDS[0]}"
+            local vdilist="$(${dog} vdi list -r 2>/dev/null | awk '{print $2}')"
+            COMPREPLY=($( compgen -W " ${vdilist}" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_vdi_restore()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-s --snapshot -a --address -p --port -h --help -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            local dog="${COMP_WORDS[0]}"
+            local vdilist="$(${dog} vdi list -r 2>/dev/null | awk '{print $2}')"
+            COMPREPLY=($( compgen -W " ${vdilist}" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_vdi_alter-copy()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-c --copies -a --address -p --port -h --help -T --time -f --force" \
+                -- ${cur} ))
+            ;;
+        *)
+            local dog="${COMP_WORDS[0]}"
+            local vdilist="$(${dog} vdi list -r 2>/dev/null | awk '{print $2}')"
+            COMPREPLY=($( compgen -W " ${vdilist}" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_vdi_lock()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-s --snapshot -a --address -p --port -h --help -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            local dog="${COMP_WORDS[0]}"
+            local vdilist="$(${dog} vdi list -r 2>/dev/null | awk '{print $2}')"
+            COMPREPLY=($( compgen -W "list unlock ${vdilist}" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_benchmark()
+{
+    local opts
+    opts="io"
+
+    case "$1" in
+        io)
+            _dog_benchmark_io
+            ;;
+        "")
+            COMPREPLY=($( compgen \
+                -W "${opts}" \
+                -- "${COMP_WORDS[COMP_CWORD]}" ))
+            ;;
+        *)
+            COMPREPLY=()
+            ;;
+    esac
+}
+
+_dog_benchmark_io()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-a --address -p --port -r --raw -h --help -T --time -f --force -w --workqueue -t --total -n --nr-threads" \
+                -- ${cur} ))
+            ;;
+        *)
+            COMPREPLY=($( compgen -W "" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_node()
+{
+    local opts
+    opts="kill list info recovery md stat log vnodes format"
+
+    case "$1" in
+        kill)
+            _dog_node_kill
+            ;;
+        list)
+            _dog_node_list
+            ;;
+        info)
+            _dog_node_info
+            ;;
+        recovery)
+            _dog_node_recovery
+            ;;
+        md)
+            _dog_node_md
+            ;;
+        stat)
+            _dog_node_stat
+            ;;
+        log)
+            _dog_node_log
+            ;;
+        vnodes)
+            _dog_node_vnodes
+            ;;
+        format)
+            _dog_node_format
+            ;;
+        "")
+            COMPREPLY=($( compgen \
+                -W "${opts}" \
+                -- "${COMP_WORDS[COMP_CWORD]}" ))
+            ;;
+        *)
+            COMPREPLY=()
+            ;;
+    esac
+}
+
+_dog_node_kill()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-a --address -p --port -r --raw -h --help -l --local -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            COMPREPLY=($( compgen -W "" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_node_list()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-a --address -p --port -r --raw -h --help -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            COMPREPLY=($( compgen -W "" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_node_info()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-a --address -p --port -r --raw -h --help -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            COMPREPLY=($( compgen -W "" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_node_recovery()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-a --address -p --port -h --help -P --progress -r --raw -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            COMPREPLY=($( compgen -W "info set get" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_node_md()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-a --address -p --port -r --raw -A --all -f --force -h --help -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            COMPREPLY=($( compgen -W "info plug unplug" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_node_stat()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-a --address -p --port -r --raw -w --watch -h --help -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            COMPREPLY=($( compgen -W "" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_node_log()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-a --address -p --port -h --help -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            COMPREPLY=($( compgen -W "level" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_node_vnodes()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-a --address -p --port -h --help" \
+                -- ${cur} ))
+            ;;
+        *)
+            COMPREPLY=($( compgen -W "set" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog_node_format()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    case "$cur" in
+        -*)
+            COMPREPLY=(${COMPREPLY[@]} \
+                $( compgen \
+                -W "-a --address -p --port -h --help -T --time" \
+                -- ${cur} ))
+            ;;
+        *)
+            COMPREPLY=($( compgen -W "" -- ${cur} ))
+            ;;
+    esac
+}
+
+_dog()
+{
+    local opts cur cmd subcmd
+    opts="cluster upgrade vdi benchmark node"
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -gt 1 ]; then
+        cmd=${COMP_WORDS[1]}
+    fi
+
+    if [ $COMP_CWORD -gt 2 ]; then
+        subcmd=${COMP_WORDS[2]}
+    fi
+
+    case "${cmd}" in
+        cluster)
+            _dog_cluster ${subcmd}
+            ;;
+        upgrade)
+            _dog_upgrade ${subcmd}
+            ;;
+        vdi)
+            _dog_vdi ${subcmd}
+            ;;
+        benchmark)
+            _dog_benchmark ${subcmd}
+            ;;
+        node)
+            _dog_node ${subcmd}
+            ;;
+        "")
+            COMPREPLY=($( compgen -W "${opts}" -- ${cur} ))
+            ;;
+        *)
+            COMPREPLY=()
+            ;;
+    esac
+}
+
+complete -F _dog dog

@@ -1,0 +1,4 @@
+#!/usr/bin/sh
+set -e
+
+etckeeper update-ignore -a || true
