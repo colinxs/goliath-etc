@@ -1,1 +1,1 @@
-root=UUID=da650347-b775-4bfd-9a8c-7b1f6c385f55 ro rootflags=subvol=root rhgb quiet 
+root=UUID=da650347-b775-4bfd-9a8c-7b1f6c385f55 ro rootflags=subvol=root rhgb quiet intel_iommu=on amd_iommu=on iommu=pt mitigations=off selinux=0
