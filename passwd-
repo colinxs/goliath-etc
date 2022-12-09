@@ -55,3 +55,9 @@ libvirtdbus:x:970:970:Libvirt D-Bus bridge:/:/sbin/nologin
 dirsrv:x:389:389:user for 389-ds-base:/usr/share/dirsrv:/sbin/nologin
 wsdd:x:388:388:Web Services Dynamic Discovery host daemon:/:/sbin/nologin
 _osbuild-composer:x:968:968:OSBuild Composer user:/:/usr/sbin/nologin
+grafana-agent:x:387:387:grafana-agent user:/var/lib/grafana-agent:/sbin/nologin
+ods:x:386:386:softhsm private keys owner:/var/lib/softhsm:/sbin/nologin
+kdcproxy:x:385:385:IPA KDC Proxy User:/:/sbin/nologin
+ipaapi:x:384:384:IPA Framework User:/:/sbin/nologin
+named:x:25:25:Named:/var/named:/sbin/nologin
+tomcat:x:53:53:Apache Tomcat:/usr/share/tomcat:/sbin/nologin

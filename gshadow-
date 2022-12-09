@@ -31,7 +31,7 @@ input:!*::
 kvm:!*::qemu
 render:!*::
 sgx:!*::
-systemd-journal:!*::
+systemd-journal:!*::grafana-agent
 systemd-network:!*::
 systemd-oom:!*::
 systemd-resolve:!*::
@@ -86,3 +86,9 @@ weldr:!*::
 _osbuild-composer:!*::
 onepassword-cli:!::
 grafana-agent:!::
+ods:!::
+kdcproxy:!::
+ipaapi:!::apache
+named:!::
+pkcs11:!::
+tomcat:!::

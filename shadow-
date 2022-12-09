@@ -55,3 +55,9 @@ libvirtdbus:!!:19334::::::
 dirsrv:!!:19334::::::
 wsdd:!!:19334::::::
 _osbuild-composer:!*:19334::::::
+grafana-agent:!!:19335::::::
+ods:!!:19335::::::
+kdcproxy:!!:19335::::::
+ipaapi:!!:19335::::::
+named:!!:19335::::::
+tomcat:!!:19335::::::
