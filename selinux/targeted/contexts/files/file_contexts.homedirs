@@ -27,6 +27,7 @@
 /home/[^/]+/\.pki(/.*)?	unconfined_u:object_r:home_cert_t:s0
 /home/[^/]+/\.ssh(/.*)?	unconfined_u:object_r:ssh_home_t:s0
 /home/[^/]+/\.uml(/.*)?	unconfined_u:object_r:uml_rw_t:s0
+/home/[^/]+/\.vnc(/.*)?	unconfined_u:object_r:vnc_home_t:s0
 /home/[^/]+/\.DCOP.*	--	unconfined_u:object_r:iceauth_home_t:s0
 /home/[^/]+/\.dmrc.*	--	unconfined_u:object_r:xdm_home_t:s0
 /home/[^/]+/Audio(/.*)?	unconfined_u:object_r:audio_home_t:s0
