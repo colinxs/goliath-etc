@@ -15,6 +15,7 @@
   <service name="ws-discovery-client"/>
   <service name="ws-discovery-tcp"/>
   <service name="ws-discovery-udp"/>
+  <service name="dropbox-lansync"/>
   <port port="1025-65535" protocol="udp"/>
   <port port="1025-65535" protocol="tcp"/>
   <forward/>
