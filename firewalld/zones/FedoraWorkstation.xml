@@ -17,6 +17,7 @@
   <service name="ws-discovery-udp"/>
   <service name="dropbox-lansync"/>
   <service name="gsconnect"/>
+  <service name="prometheus-node-exporter"/>
   <port port="1025-65535" protocol="udp"/>
   <port port="1025-65535" protocol="tcp"/>
   <forward/>
