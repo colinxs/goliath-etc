@@ -54,3 +54,4 @@ cockpit-wsinstance:x:971:971:User for cockpit-ws instances:/nonexisting:/sbin/no
 libvirtdbus:x:970:970:Libvirt D-Bus bridge:/:/sbin/nologin
 dirsrv:x:389:389:user for 389-ds-base:/usr/share/dirsrv:/sbin/nologin
 wsdd:x:388:388:Web Services Dynamic Discovery host daemon:/:/sbin/nologin
+_osbuild-composer:x:968:968:OSBuild Composer user:/:/usr/sbin/nologin

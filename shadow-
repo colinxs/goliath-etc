@@ -54,3 +54,4 @@ cockpit-wsinstance:!!:19334::::::
 libvirtdbus:!!:19334::::::
 dirsrv:!!:19334::::::
 wsdd:!!:19334::::::
+_osbuild-composer:!*:19334::::::
