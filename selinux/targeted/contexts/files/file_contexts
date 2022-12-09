@@ -742,6 +742,7 @@
 /var/lib/dcc(/.*)?	system_u:object_r:dcc_var_t:s0
 /var/lib/dnf(/.*)?	system_u:object_r:rpm_var_lib_t:s0
 /var/lib/git(/.*)?	system_u:object_r:git_sys_content_t:s0
+/var/lib/ipa(/.*)?	system_u:object_r:ipa_var_lib_t:s0
 /var/lib/lxc(/.*)?	system_u:object_r:container_var_lib_t:s0
 /var/lib/lxd(/.*)?	system_u:object_r:container_var_lib_t:s0
 /var/lib/mpd(/.*)?	system_u:object_r:mpd_var_lib_t:s0
@@ -761,6 +762,7 @@
 /var/lib/xen(/.*)?	system_u:object_r:xend_var_lib_t:s0
 /var/lib/xkb(/.*)?	system_u:object_r:xkb_var_lib_t:s0
 /var/lib/yum(/.*)?	system_u:object_r:rpm_var_lib_t:s0
+/var/log/ipa(/.*)?	system_u:object_r:ipa_log_t:s0
 /var/log/log(/.*)?	system_u:object_r:virt_log_t:s0
 /var/log/lxc(/.*)?	system_u:object_r:container_log_t:s0
 /var/log/lxd(/.*)?	system_u:object_r:container_log_t:s0
@@ -776,6 +778,7 @@
 /var/run/crm(/.*)?	system_u:object_r:cluster_var_run_t:s0
 /var/run/dcc(/.*)?	system_u:object_r:dcc_var_run_t:s0
 /var/run/fcm(/.*)?	system_u:object_r:fcoemon_var_run_t:s0
+/var/run/ipa(/.*)?	system_u:object_r:ipa_var_run_t:s0
 /var/run/log(/.*)?	system_u:object_r:syslogd_var_run_t:s0
 /var/run/lsm(/.*)?	system_u:object_r:lsmd_var_run_t:s0
 /var/run/lvm(/.*)?	system_u:object_r:lvm_var_run_t:s0
@@ -2542,6 +2545,7 @@
 /usr/share/shorewall6?/configpath	--	system_u:object_r:bin_t:s0
 /usr/lib/erlang/erts-[^/]*/bin/epmd	--	system_u:object_r:lib_t:s0
 /opt/brother/Printers(.*/)?inf(/.*)?	system_u:object_r:cupsd_rw_etc_t:s0
+/var/log/ipa-custodia.audit.log(/.*)?	--	system_u:object_r:ipa_custodia_log_t:s0
 /var/lib/stickshift/a?quota\.(user|group)	--	system_u:object_r:quota_db_t:s0
 /etc/krb5kdc/principal.*	system_u:object_r:krb5kdc_principal_t:s0
 /var/www/cgi-bin/munin.*	system_u:object_r:munin_script_exec_t:s0
@@ -2960,6 +2964,7 @@
 /usr/lib/yafaray/libDarkSky.so	--	system_u:object_r:textrel_shlib_t:s0
 /usr/libexec/yumDBUSBackend.py	--	system_u:object_r:rpm_exec_t:s0
 /usr/share/sandbox/sandboxX.sh	--	system_u:object_r:bin_t:s0
+/etc/httpd/alias/ipasession.key	--	system_u:object_r:ipa_cert_t:s0
 /etc/dhcp/wireless-settings.conf	--	system_u:object_r:NetworkManager_var_lib_t:s0
 /etc/wicd/wireless-settings.conf	--	system_u:object_r:NetworkManager_var_lib_t:s0
 /usr/X11R6/lib/modules/dri/.+\.so	--	system_u:object_r:textrel_shlib_t:s0
@@ -3090,6 +3095,7 @@
 /var/lib/openshift/\.log/httpd(/.*)?	system_u:object_r:httpd_log_t:s0
 /var/run/systemd/ask-password(/.*)?	system_u:object_r:systemd_passwd_var_run_t:s0
 /usr/share/gitolite3/commands(/.*)?	--	system_u:object_r:bin_t:s0
+/var/log/ipareplica-conncheck.log.*	--	system_u:object_r:ipa_log_t:s0
 /var/lib/buildkit/containerd-.*(/.*?)	system_u:object_r:container_ro_file_t:s0
 /usr/lib/libjavascriptcoregtk[^/]*\.so.*	--	system_u:object_r:textrel_shlib_t:s0
 /etc/hotplug\.d/default/default.*	system_u:object_r:bin_t:s0
@@ -3210,6 +3216,7 @@
 /usr/lib/systemd/system/collectd.*	--	system_u:object_r:collectd_unit_file_t:s0
 /usr/lib/systemd/system/corosync.*	--	system_u:object_r:cluster_unit_file_t:s0
 /usr/lib/systemd/system/dhcrelay.*	--	system_u:object_r:dhcpd_unit_file_t:s0
+/usr/lib/systemd/system/ipa-otpd.*	--	system_u:object_r:ipa_otpd_unit_file_t:s0
 /usr/lib/systemd/system/ipmiseld.*	--	system_u:object_r:freeipmi_ipmiseld_unit_file_t:s0
 /usr/lib/systemd/system/iptables.*	--	system_u:object_r:iptables_unit_file_t:s0
 /usr/lib/systemd/system/netlabel.*	--	system_u:object_r:netlabel_mgmt_unit_file_t:s0
@@ -3302,6 +3309,7 @@
 /usr/lib/systemd/system/sshd-keygen.*	--	system_u:object_r:sshd_keygen_unit_file_t:s0
 /usr/lib/vmware-tools/sbin32/vmware.*	--	system_u:object_r:vmware_host_exec_t:s0
 /usr/lib/vmware-tools/sbin64/vmware.*	--	system_u:object_r:vmware_host_exec_t:s0
+/usr/libexec/ipa/oddjob/org\.freeipa.*	--	system_u:object_r:ipa_helper_exec_t:s0
 /var/run/NetworkManager/resolv\.conf.*	--	system_u:object_r:net_conf_t:s0
 /usr/lib/systemd/system-generators/[^/]*	--	system_u:object_r:init_exec_t:s0
 /var/lib/NetworkManager-fortisslvpn(/.*)?	system_u:object_r:openfortivpn_var_lib_t:s0
@@ -3352,6 +3360,7 @@
 /usr/lib/systemd/system/NetworkManager.*	--	system_u:object_r:NetworkManager_unit_file_t:s0
 /usr/lib/systemd/system/corosync-qnetd.*	--	system_u:object_r:cluster_unit_file_t:s0
 /usr/lib/systemd/system/libstoragemgmt.*	--	system_u:object_r:lsmd_unit_file_t:s0
+/usr/libexec/ipa/oddjob/com\.redhat\.idm.*	--	system_u:object_r:ipa_helper_exec_t:s0
 /usr/libexec/polkit-resolve-exe-helper.*	--	system_u:object_r:policykit_resolve_exec_t:s0
 /var/log/aeolus-conductor/dbomatic\.log.*	--	system_u:object_r:mongod_log_t:s0
 /usr/share/squeezeboxserver/CPAN/arch/.+\.so	--	system_u:object_r:textrel_shlib_t:s0
@@ -3365,6 +3374,7 @@
 /usr/lib/systemd/system-generators/lvm2.*	--	system_u:object_r:lvm_exec_t:s0
 /usr/lib/systemd/system/dnssec-triggerd.*	--	system_u:object_r:dnssec_trigger_unit_file_t:s0
 /usr/lib/systemd/system/insights-client.*	--	system_u:object_r:insights_client_unit_file_t:s0
+/usr/lib/systemd/system/ipa-dnskeysyncd.*	--	system_u:object_r:ipa_dnskey_unit_file_t:s0
 /usr/lib/systemd/system/openstack-swift.*	--	system_u:object_r:swift_unit_file_t:s0
 /usr/lib/systemd/system/rabbitmq-server.*	--	system_u:object_r:rabbitmq_unit_file_t:s0
 /etc/boinc-client/global_prefs_override.xml	--	system_u:object_r:boinc_var_lib_t:s0
@@ -3376,6 +3386,7 @@
 /usr/lib/systemd/system/nm-cloud-setup\.(service|timer)	--	system_u:object_r:NetworkManager_unit_file_t:s0
 /usr/lib/xorg/modules/extensions/nvidia(-[^/]*)?/libglx\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t:s0
 /usr/lib/systemd/system/corosync-qdevice.*	--	system_u:object_r:cluster_unit_file_t:s0
+/usr/lib/systemd/system/ipa-ods-exporter.*	--	system_u:object_r:ipa_ods_exporter_unit_file_t:s0
 /usr/lib/systemd/system/systemd-userdbd\.(service|socket)	--	system_u:object_r:systemd_userdbd_unit_file_t:s0
 /usr/lib/systemd/system/hwloc-dump-hwdata.*	--	system_u:object_r:hwloc_dhwd_unit_t:s0
 /usr/lib/systemd/system/ovirt-guest-agent.*	--	system_u:object_r:rhev_agentd_unit_file_t:s0
@@ -5080,6 +5091,7 @@
 /usr/libexec/Xorg\.bin	--	system_u:object_r:xserver_exec_t:s0
 /usr/libexec/dcc/dccd	--	system_u:object_r:dccd_exec_t:s0
 /usr/libexec/dcc/dccm	--	system_u:object_r:dccm_exec_t:s0
+/usr/libexec/ipa-otpd	--	system_u:object_r:ipa_otpd_exec_t:s0
 /usr/libexec/mariadbd	--	system_u:object_r:mysqld_exec_t:s0
 /usr/libexec/pt_chown	--	system_u:object_r:ptchown_exec_t:s0
 /usr/libexec/stratisd	--	system_u:object_r:stratisd_exec_t:s0
@@ -5649,6 +5661,7 @@
 /usr/lib/oddjob/mkhomedir	--	system_u:object_r:oddjob_mkhomedir_exec_t:s0
 /usr/lib/polkit-1/polkitd	--	system_u:object_r:policykit_exec_t:s0
 /usr/libexec/dovecot/auth	--	system_u:object_r:dovecot_auth_exec_t:s0
+/usr/libexec/ipa/ipa-otpd	--	system_u:object_r:ipa_otpd_exec_t:s0
 /usr/libexec/ipsec/eroute	--	system_u:object_r:ipsec_exec_t:s0
 /usr/libexec/news/actsync	--	system_u:object_r:innd_exec_t:s0
 /usr/libexec/news/archive	--	system_u:object_r:innd_exec_t:s0
@@ -5969,6 +5982,7 @@
 /usr/libexec/postfix/cleanup	--	system_u:object_r:postfix_cleanup_exec_t:s0
 /usr/libexec/postfix/virtual	--	system_u:object_r:postfix_virtual_exec_t:s0
 /usr/libexec/samba/rpcd_lsad	--	system_u:object_r:winbind_rpcd_exec_t:s0
+/usr/libexec/sssd/oidc_child	--	system_u:object_r:ipa_otpd_exec_t:s0
 /usr/libexec/telepathy-rakia	--	system_u:object_r:telepathy_sofiasip_exec_t:s0
 /usr/libexec/telepathy-salut	--	system_u:object_r:telepathy_salut_exec_t:s0
 /usr/libexec/udisks2/udisksd	--	system_u:object_r:devicekit_disk_exec_t:s0
@@ -6029,6 +6043,7 @@
 /usr/lib/vte/gnome-pty-helper	--	system_u:object_r:bin_t:s0
 /usr/lib/xfce4/xfconf/xfconfd	--	system_u:object_r:bin_t:s0
 /usr/libexec/dcc/start-dccifd	--	system_u:object_r:dccifd_exec_t:s0
+/usr/libexec/ipa/ipa-custodia	--	system_u:object_r:ipa_custodia_exec_t:s0
 /usr/libexec/ipsec/_plutoload	--	system_u:object_r:ipsec_mgmt_exec_t:s0
 /usr/libexec/ipsec/klipsdebug	--	system_u:object_r:ipsec_exec_t:s0
 /usr/libexec/news/grephistory	--	system_u:object_r:innd_exec_t:s0
@@ -6217,6 +6232,7 @@
 /usr/libexec/dovecot/dovecot-lda	--	system_u:object_r:dovecot_deliver_exec_t:s0
 /usr/libexec/gdm-disable-wayland	--	system_u:object_r:xdm_exec_t:s0
 /usr/libexec/git-core/git-daemon	--	system_u:object_r:gitd_exec_t:s0
+/usr/libexec/ipa/ipa-dnskeysyncd	--	system_u:object_r:ipa_dnskey_exec_t:s0
 /usr/libexec/nm-openswan-service	--	system_u:object_r:ipsec_mgmt_exec_t:s0
 /usr/libexec/openssh/sftp-server	--	system_u:object_r:bin_t:s0
 /usr/libexec/openssh/ssh-keysign	--	system_u:object_r:ssh_keysign_exec_t:s0
@@ -6275,6 +6291,7 @@
 /usr/libexec/bluetooth/bluetoothd	--	system_u:object_r:bluetooth_exec_t:s0
 /usr/libexec/dovecot/dovecot-auth	--	system_u:object_r:dovecot_auth_exec_t:s0
 /usr/libexec/gsd-backlight-helper	--	system_u:object_r:xserver_exec_t:s0
+/usr/libexec/ipa/ipa-ods-exporter	--	system_u:object_r:ipa_ods_exporter_exec_t:s0
 /usr/libexec/min-metadata-service	--	system_u:object_r:cloud_init_exec_t:s0
 /usr/libexec/nm-libreswan-service	--	system_u:object_r:ipsec_mgmt_exec_t:s0
 /usr/libexec/ppc64-diag/rtas_errd	--	system_u:object_r:rtas_errd_exec_t:s0
@@ -6394,6 +6411,7 @@
 /usr/libexec/cups-pk-helper-mechanism	--	system_u:object_r:cupsd_config_exec_t:s0
 /usr/libexec/cyrus-imapd/cyrus-master	--	system_u:object_r:cyrus_exec_t:s0
 /usr/libexec/gconf-defaults-mechanism	--	system_u:object_r:gconfdefaultsm_exec_t:s0
+/usr/libexec/ipa/ipa-pki-retrieve-key	--	system_u:object_r:ipa_pki_retrieve_key_exec_t:s0
 /usr/share/wordpress-mu/wp-config\.php	--	system_u:object_r:httpd_sys_script_exec_t:s0
 /var/lib/likewise-open/db/registry\.db	--	system_u:object_r:lwregd_var_lib_t:s0
 /var/lib/likewise-open/run/rpcdep\.dat	--	system_u:object_r:dcerpcd_var_lib_t:s0
@@ -6433,6 +6451,7 @@
 /usr/lib/systemd/systemd-time-wait-sync	--	system_u:object_r:systemd_timedated_exec_t:s0
 /usr/lib/xfce4/exo-1/exo-compose-mail-1	--	system_u:object_r:bin_t:s0
 /usr/libexec/cockpit-wsinstance-factory	--	system_u:object_r:cockpit_ws_exec_t:s0
+/usr/libexec/ipa/ipa-dnskeysync-replica	--	system_u:object_r:ipa_dnskey_exec_t:s0
 /usr/share/authconfig/authconfig-gtk\.py	--	system_u:object_r:bin_t:s0
 /usr/share/authconfig/authconfig-tui\.py	--	system_u:object_r:bin_t:s0
 /usr/share/gitolite/hooks/common/update	--	system_u:object_r:bin_t:s0
@@ -6499,6 +6518,7 @@
 /etc/dnssec-trigger/dnssec_trigger_server\.key	--	system_u:object_r:dnssec_t:s0
 /usr/lib/NetworkManager/dispatcher\.d/04-iscsi	--	system_u:object_r:NetworkManager_dispatcher_iscsid_script_t:s0
 /usr/libexec/dbus-1/dbus-daemon-launch-helper	--	system_u:object_r:dbusd_exec_t:s0
+/usr/libexec/ipa/custodia/ipa-custodia-dmldap	--	system_u:object_r:ipa_custodia_dmldap_exec_t:s0
 /usr/libexec/webmin/vsftpd/webalizer/xfer_log	--	system_u:object_r:xferlog_t:s0
 /usr/share/aeolus-conductor/dbomatic/dbomatic	--	system_u:object_r:mongod_exec_t:s0
 /etc/xorg\.conf\.d/00-system-setup-keyboard\.conf	--	system_u:object_r:etc_runtime_t:s0
@@ -6511,6 +6531,7 @@
 /etc/NetworkManager/dispatcher\.d/20-chrony-dhcp	--	system_u:object_r:NetworkManager_dispatcher_chronyc_script_t:s0
 /usr/lib/NetworkManager/dispatcher\.d/30-winbind	--	system_u:object_r:NetworkManager_dispatcher_winbind_script_t:s0
 /usr/lib/chromium-browser/nacl_helper_bootstrap	--	system_u:object_r:chrome_sandbox_nacl_exec_t:s0
+/usr/libexec/ipa/custodia/ipa-custodia-ra-agent	--	system_u:object_r:ipa_custodia_ra_agent_exec_t:s0
 /usr/libexec/lm_sensors/sensord-service-wrapper	--	system_u:object_r:sensord_exec_t:s0
 /usr/libexec/pegasus/cmpiLMI_Account-cimprovagt	--	system_u:object_r:pegasus_openlmi_account_exec_t:s0
 /usr/libexec/pegasus/cmpiLMI_Service-cimprovagt	--	system_u:object_r:pegasus_openlmi_admin_exec_t:s0
@@ -6531,6 +6552,7 @@
 /usr/share/system-config-services/serviceconf\.py	--	system_u:object_r:bin_t:s0
 /opt/novell/groupwise/client/lib/libgwapijni\.so\.1	--	system_u:object_r:textrel_shlib_t:s0
 /usr/lib/NetworkManager/dispatcher\.d/99tlp-rdw-nm	--	system_u:object_r:NetworkManager_dispatcher_tlp_script_t:s0
+/usr/libexec/ipa/custodia/ipa-custodia-pki-tomcat	--	system_u:object_r:ipa_custodia_pki_tomcat_exec_t:s0
 /usr/libexec/pegasus/pycmpiLMI_Storage-cimprovagt	--	system_u:object_r:pegasus_openlmi_storage_exec_t:s0
 /usr/share/ovirt-guest-agent/LockActiveSession\.py	--	system_u:object_r:rhev_agentd_exec_t:s0
 /usr/share/ovirt-guest-agent/ovirt-guest-agent\.py	--	system_u:object_r:rhev_agentd_exec_t:s0
@@ -6568,6 +6590,7 @@
 /usr/share/system-config-language/system-config-language	--	system_u:object_r:bin_t:s0
 /usr/share/system-config-services/system-config-services	--	system_u:object_r:bin_t:s0
 /usr/lib/NetworkManager/dispatcher\.d/90-nm-cloud-setup\.sh	--	system_u:object_r:NetworkManager_dispatcher_cloud_script_t:s0
+/usr/libexec/ipa/custodia/ipa-custodia-pki-tomcat-wrapped	--	system_u:object_r:ipa_custodia_pki_tomcat_exec_t:s0
 /usr/share/system-config-netboot/system-config-netboot\.py	--	system_u:object_r:bin_t:s0
 /usr/share/system-config-selinux/system-config-selinux\.py	--	system_u:object_r:bin_t:s0
 /usr/share/system-config-soundcard/system-config-soundcard	--	system_u:object_r:bin_t:s0
