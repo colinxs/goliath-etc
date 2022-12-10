@@ -1,0 +1,23 @@
+[connection]
+id=CMB STEAMlab
+uuid=5e64fa07-6a3d-41f6-baba-a2b5cf4f05b8
+type=wifi
+interface-name=wlp0s20f3
+
+[wifi]
+mode=infrastructure
+ssid=CMB STEAMlab
+
+[wifi-security]
+auth-alg=open
+key-mgmt=wpa-psk
+psk=CMBWifi15
+
+[ipv4]
+method=auto
+
+[ipv6]
+addr-gen-mode=default
+method=auto
+
+[proxy]
