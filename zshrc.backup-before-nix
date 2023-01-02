@@ -48,10 +48,3 @@ _src_etc_profile_d
 
 unset -f pathmunge _src_etc_profile_d
 
-
-# Nix
-if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-fi
-# End Nix
-
