@@ -1,18 +1,16 @@
 [connection]
-id=Livingston
-uuid=d488b8b0-ce6c-482c-a570-37c37bee268a
+id=RoamFi
+uuid=f77a5df8-200b-448d-98c2-2530908c07ab
 type=wifi
-autoconnect=false
 interface-name=wlp0s20f3
-timestamp=1672693298
 
 [wifi]
-mode=infrastructure
-ssid=Livingston
+hidden=true
+ssid=RoamFi
 
 [wifi-security]
 key-mgmt=wpa-psk
-psk=southwind
+psk=bedazzle4FIBRE-racket
 
 [ipv4]
 method=auto

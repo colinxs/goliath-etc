@@ -1,0 +1,22 @@
+[connection]
+id=RoamFi 1
+uuid=b59d97d9-0bc7-4792-97a4-4395dc095040
+type=wifi
+interface-name=wlp0s20f3
+
+[wifi]
+hidden=true
+ssid=RoamFi
+
+[wifi-security]
+key-mgmt=sae
+psk=bedazzle4FIBRE-racket
+
+[ipv4]
+method=auto
+
+[ipv6]
+addr-gen-mode=default
+method=auto
+
+[proxy]

@@ -1,18 +1,17 @@
 [connection]
-id=Livingston
-uuid=d488b8b0-ce6c-482c-a570-37c37bee268a
+id=RoamFi 2
+uuid=49b3c4c1-ec15-402d-8545-5b24ac89d6e4
 type=wifi
-autoconnect=false
 interface-name=wlp0s20f3
-timestamp=1672693298
 
 [wifi]
 mode=infrastructure
-ssid=Livingston
+ssid=RoamFi
 
 [wifi-security]
+auth-alg=open
 key-mgmt=wpa-psk
-psk=southwind
+psk=clomp0bargain@coupe
 
 [ipv4]
 method=auto
