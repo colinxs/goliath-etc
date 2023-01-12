@@ -10,7 +10,7 @@ ssid=RoamFi
 
 [wifi-security]
 key-mgmt=wpa-psk
-psk=bedazzle4FIBRE-racket
+psk=clomp0bargain@coupe
 
 [ipv4]
 method=auto
